@@ -1,3 +1,5 @@
+use std::any::type_name;
+
 fn main() {
     let x: i8 = 10;
     println!("{}", x);
@@ -14,7 +16,6 @@ fn main() {
 
     let byte = b'A';
     println!("{}", byte);
-
 
     let my_tuple = (500, "hello", false);
 
@@ -40,4 +41,35 @@ fn main() {
 
     my_vec.push(60);
     println!("{:?}", my_vec);
+
+    let mut new_vec = Vec::new();
+    new_vec.push("test");
+    new_vec.push("value");
+    println!("{:?}", new_vec);
+
+    let v: Vec<i32> = (0..10).collect();
+
+    println!("v is {:?}", v);
+
+    //slices
+
+    let sv: &[i32] = &v[2..6];
+
+    println!("{:?}", sv);
+
+    println!("v is {:?}", v);
+
+    //strings
+
+    let name = String::from("Tyler");
+    let course = "Rust".to_string();
+    let new_name = name.replace(&name, "Perry");
+
+    println!("name is {}", name);
+    println!("course is {}", course);
+    println!("new name is {}", new_name);
+
+    //&str - string slice or stir
+    let str1 = "hello there";
+    println!("{}", str1)
 }
